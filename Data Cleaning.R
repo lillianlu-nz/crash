@@ -4,7 +4,7 @@ library(tidyverse)
 library(epiDisplay)
 
 # read file 
-raw <- read.csv("D:/Work/Job Hunt/MoT Interview/Crash_Analysis_System_(CAS)_data.csv")
+raw <- read.csv("./Crash_Analysis_System_(CAS)_data.csv")
 
 # EDA
 str(raw)
