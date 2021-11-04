@@ -3,6 +3,6 @@ This app is recreated with sample data downloaded from the Crash Analysis System
 
 Any filters applied will change the results in the Crash Locations and Driving Condition tabs. The Severity Prediction tab demonstrates the possibility of predicting severe or fatal crashes by the dataset, under the Bayesian approach. The model performance is to be improved. 
 
-For error reporting or feedback please contact lillianlu.nz@gmail.com"
+For error reporting or feedback please contact lillianlu.nz@gmail.com
 
 https://g7nd6z-lillian-lu.shinyapps.io/crash/
