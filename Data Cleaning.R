@@ -92,7 +92,7 @@ crash <- raw %>%
           region == "West Coast Region" | region == "Tasman Region" ~ "Tasman",
         TRUE ~ region
       ),
-    
+
     # road type based on speed limit    
     roadType = 
       case_when(
@@ -101,15 +101,18 @@ crash <- raw %>%
         speedLimit >= 100 ~ "Highway",
         TRUE ~ "Unknown")
     
-  ) %>%
+    ) %>%
   
   # remove all NA values in vehicleType
   dplyr::filter(!is.na(vehicleType) & policeDistrict != "") %>% 
   
+  # rename X column 
+  dplyr::rename(X = 1) %>% 
+  
   # select all wanted columns in order
-  dplyr::select(crashYear, holidayNew, policeDistrict, weatherA, vehicleType, 
-                light, roadSurface, roadType, speedLimit, pedestrian,
-                minorInjuryCount, fatalCount, severeOrFatal)
+  dplyr::select(X, Y, crashYear, holidayNew, region, policeDistrict, areaUnitID, crashLocation1,
+                weatherA, vehicleType, light, roadSurface, roadType, speedLimit, 
+                pedestrian, minorInjuryCount, fatalCount, severeOrFatal)
 
 # covert all categorical vars to factors
 for (i in 1:ncol(crash)) {
