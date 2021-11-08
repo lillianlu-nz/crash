@@ -139,17 +139,3 @@ summary(crash)
 
 # output data to CSV
 write.csv(crash, "./crash_sample.csv", row.names = F)
-
-# BAYESIAN LOGISTIC REGRESSION ----
-
-# remove the columns not suitable as the predictors
-crashLR <- crash %>% 
-  dplyr::select(-pedestrian, -minorInjuryCount, -fatalCount)
-
-# Which variables could be used to significantly predict the severity level of the crash?
-# The easiest way is to construct a full model under the frequentist approach, and keep those with p < 0.05 
-# region, weatherA, vehicleType, light, roadType
-
-crashModel = glm(severeOrFatal ~ ., family = binomial, data = crashLR)
-epiDisplay::logistic.display(crashModel)
-crashModel_table = epiDisplay::logistic.display(crashModel)$table
